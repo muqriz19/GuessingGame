@@ -1,0 +1,25 @@
+.startscreen {
+    background-color: rgb(197,202,233);
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    border: 5px rgb(67,67,67);
+    padding: 10px;
+}
+
+button:hover {
+    background-color: rgb(159,168,218);
+}
+
+.gameSection {
+    /*display: none; */
+    background-color: rgb(240,98,122);
+    padding: 20px;
+    text-align: center;
+}
+
+.message {
+
+}

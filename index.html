@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div class="startscreen">
+        <h1>Guessing Game</h1>
+        <button type="button" onclick="startGame()">Generate Random Number</button>
+        <p>Try to guess the random number from 1 - 10.</p>
+    </div>
+
+    <div class="gameSection">
+        <h1>Guess the number...</h1>
+        <h2 id="messages" class="message">Message</h2>
+        <label for="guesses">Choose the number: </label>
+        <input id="guesses" type="number" min="1" max="10" value="1" name="guessNumber">
+        <button class="startbutton" type="button" onclick="guessNumber()">Guess</button>
+    </div>
+
+    <script type="text/javascript">
+
+        var gameRunning = false;
+
+        var randomNumber;
+
+        function startGame() {
+
+            document.getElementById('messages').innerHTML = "What is the random number?";
+            gameRunning = true;
+            randomNumber = Math.trunc(Math.random() * 10 + 1);
+
+            console.log(randomNumber);
+
+        }
+
+        function guessNumber() {
+
+            if (randomNumber === undefined) {
+                document.getElementById('messages').innerHTML = "Random number has not been generated... Click the \"Generate Random Number\" button to do so.";
+
+            } else {
+                
+                var guessElement = document.getElementById('guesses');
+
+                var guess = Number(guessElement.value);
+                console.log(guess);
+
+                if (guess === randomNumber) {
+                    document.getElementById('messages').innerHTML = "Correct! You guessed the number correct!";
+
+                } else {
+                    document.getElementById('messages').innerHTML = "Keep guessing...";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
