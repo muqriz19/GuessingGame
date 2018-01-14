@@ -1,27 +1,33 @@
-.startscreen {
+hr {
+    color: rgb(33, 33, 33);
+}
+
+.font {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#startscreen {
     background-color: rgb(197,202,233);
     padding: 20px;
     text-align: center;
+    
 }
 
 button {
     border: 5px rgb(67,67,67);
     padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 button:hover {
     background-color: rgb(159,168,218);
 }
 
-.gameSection {
-    /*display: none; */
+#gameSection {
+    display: none;
     background-color: rgb(240,98,122);
     padding: 20px;
     text-align: center;
-}
-
-.message {
-
 }
 
 #playerLivesMessage {

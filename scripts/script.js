@@ -1,18 +1,25 @@
 var gameRunning = false;
 var randomNumber;
 var playerLives = 5;
+var playerGuess;
 
 function startGame() {
 
     /*
-        Set the game variables
+
+     Sets up the game variables.
 
     */
+    gameRunning = true;
+    randomNumber = Math.trunc(Math.random() * 10 + 1);
+    playerLives = 5;
+
+    document.getElementById('guessButton').disabled = false;
+    // Show or hide relevent section and/or messages.
+    document.getElementById('gameSection').style.display = "block"
     document.getElementById('messages').innerHTML = "What is the random number?";
     document.getElementById('playerLives').innerHTML = playerLives;
     document.getElementById('playerLivesMessage').style.display = "block";
-    gameRunning = true;
-    randomNumber = Math.trunc(Math.random() * 10 + 1);
 
 
     //console.log(randomNumber);
@@ -20,22 +27,35 @@ function startGame() {
 }
 
 function guessNumber() {
+    var guessElement = document.getElementById('guesses');
+    playerGuess = Number(guessElement.value);
 
+    // Checks if random number has been generated or not.
+    // Although not needed, just in case check.
     if (randomNumber === undefined) {
         document.getElementById('messages').innerHTML = "Random number has not been generated... Click the \"Generate Random Number\" button to do so.";
 
     } else {
 
-        var guessElement = document.getElementById('guesses');
+        if (playerLives === 0) {
+            document.getElementById('messages').innerHTML = "Game Over";
+            document.getElementById('guessButton').disabled = true;
+            document.getElementById('startButton').innerHTML = "Reset";
 
-        var guess = Number(guessElement.value);
-        console.log(guess);
-
-        if (guess === randomNumber) {
-            document.getElementById('messages').innerHTML = "Correct! You guessed the number correct!";
 
         } else {
-            document.getElementById('messages').innerHTML = "Keep guessing...";
+            if (playerGuess !== randomNumber) {
+                document.getElementById('messages').innerHTML = "Keep guessing...";
+                playerLives -= 1;
+                document.getElementById('playerLives').innerHTML = playerLives;
+            } else {
+                document.getElementById('messages').innerHTML = "Correct! You guessed the number correct!";
+                document.getElementById('guessButton').disabled = true;
+            }
         }
+
+
     }
+
+    console.log(playerLives);
 }
