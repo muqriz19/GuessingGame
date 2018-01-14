@@ -57,5 +57,5 @@ function guessNumber() {
 
     }
 
-    console.log(playerLives);
+    //console.log(playerLives);
 }
