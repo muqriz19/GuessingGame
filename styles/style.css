@@ -23,3 +23,7 @@ button:hover {
 .message {
 
 }
+
+#playerLivesMessage {
+    display: none;
+}
