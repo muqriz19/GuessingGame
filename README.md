@@ -1,7 +1,6 @@
 # GuessingGame
 A guessing number game.
 
-
 Was written in HTML, CSS, JavaScript. Was really more used to test out git functionality.
 
 ## Rules
